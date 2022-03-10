@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+<bean id="user" class="eShopping.eShoppingApp.User">
+<property name="userName" value="MK"/>
+<property name="email" value="mk@gmail.com" />
+<property name="password"  value="12345" />
+<property name="shippingAddress"  value="ABC Street" />
+<property name="billingAddress"  value="XYZ street" />
+</bean>
+ 
+ <bean id="product" class="eShopping.eShoppingApp.Product">
+ <property name="productName" value="Mobile"/>
+ <property name="price" value="25000"/>
+ <property name="quantityInStock" value="10"/>
+ <property name="imageLocation" value="abc/xyz/pqr"/>
+  </bean>
+ 
+ <bean id="cart" class="eShopping.eShoppingApp.Cart">
+ <property name="totalAmount" value="3000"/>
+ <property name="status" value="true"/>
+ <property name="confirmOrder" value="true"/>
+ <property name="productList">
+ <list>
+ <ref bean="product1"/>
+ <ref bean="product2"/>
+ <ref bean="product3"/>
+ </list>
+ </property>
+ </bean>
+ 
+ 
+<bean id="product1" class="eShopping.eShoppingApp.Product">
+ <constructor-arg type="java.lang.String" value="Laptop"/>
+ <constructor-arg type="double" value="75000"/>
+ <constructor-arg type="int" value="20"/>
+  <constructor-arg type="java.lang.String" value="ABC"/>
+ </bean>
+ 
+ <bean id="product2" class="eShopping.eShoppingApp.Product">
+ <constructor-arg type="java.lang.String" value="Television"/>
+ <constructor-arg type="double" value="30000"/>
+ <constructor-arg type="int" value="15"/>
+  <constructor-arg type="java.lang.String" value="xyz"/>
+ </bean>
+ 
+ <bean id="product3" class="eShopping.eShoppingApp.Product">
+ <constructor-arg type="java.lang.String" value="Watch"/>
+ <constructor-arg type="double" value="3000"/>
+ <constructor-arg type="int" value="05"/>
+  <constructor-arg type="java.lang.String" value="30"/>
+ </bean>
+ 
+ <bean id="cart1" class="eShopping.eShoppingApp.Cart">
+ <property name="totalAmount" value="4000"/>
+ <property name="status" value="true"/>
+ <property name="confirmOrder" value="false"/>
+ <property name="productList">
+ <list>
+ <ref bean="product4"/>
+ <ref bean="product5"/>
+ <ref bean="product6"/>
+ </list>
+ </property>
+ </bean>
+ 
+ <bean id="product4" class="eShopping.eShoppingApp.Product">
+ <constructor-arg type="java.lang.String" value="Shirt"/>
+ <constructor-arg type="double" value="2000"/>
+ <constructor-arg type="int" value="45"/>
+  <constructor-arg type="java.lang.String" value="AAA"/>
+ </bean>
+ 
+ <bean id="product5" class="eShopping.eShoppingApp.Product">
+ <constructor-arg type="java.lang.String" value="Shorts"/>
+ <constructor-arg type="double" value="1000"/>
+ <constructor-arg type="int" value="11"/>
+  <constructor-arg type="java.lang.String" value="BBB"/>
+ </bean>
+ 
+ <bean id="product6" class="eShopping.eShoppingApp.Product">
+ <constructor-arg type="java.lang.String" value="Shoes"/>
+ <constructor-arg type="double" value="5000"/>
+ <constructor-arg type="int" value="50"/>
+  <constructor-arg type="java.lang.String" value="CCC"/>
+ </bean>
+ 
+ <bean id="order" class="eShopping.eShoppingApp.Order">
+ <property name="cartList">
+ <list>
+ <ref bean="cart"/>
+ <ref bean="cart1"/>
+ </list>
+ </property>
+ </bean>
+ 
+ </beans>
