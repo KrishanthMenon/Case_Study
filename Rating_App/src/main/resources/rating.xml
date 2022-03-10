@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="Product"
+		class="Rating.Review.Product">
+		<constructor-arg type="int" value="101" />
+		<constructor-arg type="java.lang.String"
+			value="Phone"></constructor-arg>
+		<constructor-arg type="java.lang.String"
+			value="portable and convenient to call and text"></constructor-arg>
+		<constructor-arg type="int" value="10"></constructor-arg>
+		<constructor-arg
+			type="Rating.Review.Review"
+			ref="review"></constructor-arg>
+	</bean>
+
+	<bean id="review"
+		class="Rating.Review.Review">
+		<property name="reviewid" value="10"></property>
+		<property name="product_reviewed" value="Phone"></property>
+		<property name="review_text" value="Quality product"></property>
+		<property name="comments">
+			<list>
+				<ref bean="comment1" />
+				<ref bean="comment2" />
+				<ref bean="comment3" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="user"
+		class="Rating.Review.User">
+		<constructor-arg type="java.lang.String"
+			value="MK"></constructor-arg>
+		<constructor-arg type="java.lang.String"
+			value="krishanthmenon@gmail.com"></constructor-arg>
+		<constructor-arg type="java.lang.String"
+			value="12345"></constructor-arg>
+		<constructor-arg type="java.lang.String"
+			value="1234567890"></constructor-arg>
+	</bean>
+
+	<bean id="comment1"
+		class="Rating.Review.Comment">
+		<constructor-arg type="int" value="501"></constructor-arg>
+		<constructor-arg type="java.lang.String"
+			value="Could have added additional features"></constructor-arg>
+		<constructor-arg type="int" value="1000"></constructor-arg>
+		<constructor-arg type="int" value="51"></constructor-arg>
+		<constructor-arg type="boolean" value="false"></constructor-arg>
+	</bean>
+	
+	<bean id="comment2"
+		class="Rating.Review.Comment">
+		<constructor-arg type="int" value="502"></constructor-arg>
+		<constructor-arg type="java.lang.String"
+			value="Light weight and easy to use"></constructor-arg>
+		<constructor-arg type="int" value="2000"></constructor-arg>
+		<constructor-arg type="int" value="61"></constructor-arg>
+		<constructor-arg type="boolean" value="false"></constructor-arg>
+	</bean>
+	
+	<bean id="comment3"
+		class="Rating.Review.Comment">
+		<constructor-arg type="int" value="502"></constructor-arg>
+		<constructor-arg type="java.lang.String"
+			value="Long battery life with uninterrupted performance"></constructor-arg>
+		<constructor-arg type="int" value="3000"></constructor-arg>
+		<constructor-arg type="int" value="71"></constructor-arg>
+		<constructor-arg type="boolean" value="false"></constructor-arg>
+	</bean>
+</beans>
